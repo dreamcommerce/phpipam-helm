@@ -37,6 +37,8 @@ spec:
           volumeMounts:
             - name: mysql-data
               mountPath: /var/lib/mysql
+            - name: mysql-config
+              mountPath: /etc/mysql/conf.d
           env:
             - name: "MYSQL_ROOT_PASSWORD"
               valueFrom:
@@ -60,4 +62,10 @@ spec:
       - name: mysql-data
         persistentVolumeClaim: 
           claimName: {{ .Chart.Name }}-mysql
+      - name: mysql-config
+        configMap:
+          name: {{ .Release.Name }}-{{ .Chart.Name }}-mysql-config
+          items:
+            - key: my.cnf
+              path: mysql-custom.cnf
 {{- end }}

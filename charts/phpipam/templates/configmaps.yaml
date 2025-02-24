@@ -9,3 +9,15 @@ data:
   {{ $key }}: |
 {{ $value | indent 4}}
 {{- end -}}
+{{- if .Values.database.installed }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-mysql-config
+  namespace: {{ .Release.Namespace }}
+data:
+  my.cnf: |
+    [mysqld]
+    default-authentication-plugin={{ .Values.database.authenticationPlugin | default "mysql_native_password" }}
+{{- end -}}
