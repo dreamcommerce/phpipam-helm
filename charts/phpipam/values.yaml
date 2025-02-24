@@ -5,6 +5,7 @@ global:
     name: "phpipam"
     user: "phpipam"
 
+
 phpipam:
   name: phpipam-web
   image:
