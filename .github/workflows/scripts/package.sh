@@ -5,7 +5,7 @@ package_name="phpipam-${package_version}.tgz"
 
 if [ -f "packages/$package_name" ]
 then
-    echo "Package already exists: ${package_name}"
+    echo "Package already exists"
     exit 0
 else
     helm package --destination packages charts/*
