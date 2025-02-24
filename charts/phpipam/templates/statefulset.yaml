@@ -56,16 +56,8 @@ spec:
                   key: {{ .Chart.Name }}-mysql-pass
           resources:
             {{- toYaml .Values.database.resources | nindent 12 }}
-  volumeClaimTemplates:
-    - metadata:
-        name: mysql-data
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: {{ .Values.database.persistence.size }}
-{{- if .Values.database.persistence.storageClassName }}
-        storageClassName: "{{ .Values.database.persistence.storageClassName }}"
-{{- end }}
+      volumes:
+      - name: mysql-data
+        persistentVolumeClaim: 
+          claimName: {{ .Chart.Name }}-mysql
 {{- end }}
