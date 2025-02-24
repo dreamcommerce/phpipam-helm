@@ -2,14 +2,12 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Auto Reindex
-on:
-  pull_request:
-    types:
-      - opened
+
 permissions:
   contents: write
   pull-requests: write
 concurrency: reindex
+on: pull_request
 jobs:
   reindex:
     runs-on: ubuntu-latest
