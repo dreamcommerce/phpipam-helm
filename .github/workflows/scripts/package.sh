@@ -1,11 +1,9 @@
 #!/bin/bash
 
 package_version=$(grep -e 'version:' charts/phpipam/Chart.yaml | awk '{ print $NF }')
-package_name="phpipam-${package_version}.tgz"
+package_name="phpipam-${package_version}"
 
-echo "$package_version"
-echo "$package_name"
-if [ ! -f "packages/${package_name}" ]; then
+if [ ! -f "packages/${package_name}.tgz" ]; then
     helm package --destination packages charts/*
     helm repo index . --url https://dreamcommerce.github.io/phpipam-helm/
 else
