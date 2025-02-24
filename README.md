@@ -34,14 +34,14 @@ Helm's [documentation](https://helm.sh/docs) to get started.
 
 Once Helm has been set up correctly, add the repo as follows:
 
-    helm repo add digitalhub https://ryjogo.github.io/digitalhub
+    helm repo add phpipam-helm https://dreamcommerce.github.io/phpipam-helm
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
-the latest versions of the packages. You can then run `helm search repo digitalhub` to see the charts.
+the latest versions of the packages. You can then run `helm search repo phpipam-helm` to see the charts.
 
 To install the phpipam chart:
 
-    helm install my-phpipam digitalhub/phpipam
+    helm install my-phpipam phpipam-helm/phpipam
 
 To uninstall the chart:
 
