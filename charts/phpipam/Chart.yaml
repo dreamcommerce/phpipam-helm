@@ -5,5 +5,5 @@ name: phpipam
 home: https://phpipam.net
 sources: 
 - https://github.com/dreamcommerce/phpipam-helm
-version: 1.0.6
+version: 1.0.7
 type: application
