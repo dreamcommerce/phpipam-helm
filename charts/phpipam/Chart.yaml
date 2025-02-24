@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: 1.7.3
+description: phpipam is an open-source web IP address management application (IPAM)
+name: phpipam
+home: https://phpipam.net
+sources: 
+- https://github.com/dreamcommerce/phpipam-helm
+version: 1.0.0
+type: application

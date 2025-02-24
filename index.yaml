@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  phpipam:
+  - apiVersion: v2
+    appVersion: 1.7.3
+    created: "2025-02-24T10:54:02.58665565Z"
+    description: phpipam is an open-source web IP address management application (IPAM)
+    digest: 52e7efcc780ab67ed6082f3f81323ffea3aed1fb0662a4b1d835702d8c001ab1
+    home: https://phpipam.net
+    name: phpipam
+    sources:
+    - https://github.com/dreamcommerce/phpipam-helm
+    type: application
+    urls:
+    - https://molestashoper.github.io/phpipam-chart/packages/phpipam-1.0.0.tgz
+    version: 1.0.0
+generated: "2025-02-24T10:54:02.586120052Z"

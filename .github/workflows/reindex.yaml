@@ -1,0 +1,29 @@
+---
+# This is a basic workflow to help you get started with Actions
+name: Auto Reindex
+permissions:
+    contents: write
+    pull-requests: write
+concurrency: reindex
+on: pull_request
+jobs:
+    reindex:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: ${{ github.head_ref}}
+            - name: Install helm 3
+              run: |
+                curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+            - name: Package existing charts
+              run: |
+                helm package --destination packages charts/*
+                helm repo index . --url https://molestashoper.github.io/phpipam-chart/
+            - name: Commit files
+              run: |
+                git config user.name "github-actions[bot]"
+                git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                git add index.yaml packages/ charts/phpipam/README.md
+                git commit -m "Reindex new charts" -a
+                git push
