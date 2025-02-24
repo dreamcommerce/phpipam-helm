@@ -9,17 +9,13 @@ metadata:
     {{ toYaml .Values.ingress.annotations | nindent 4 }}
     {{ end }}
 spec:
+  {{- if .Values.ingress.tls }}
   tls:
-    {{- if .Values.ingress.tls }}
     {{- toYaml .Values.ingress.tls | nindent 4 }}
-    {{- else }}
-    - hosts:
-        {{- range .Values.ingress.hosts }}
-        - {{ .host }}
-        {{- end }}
-      secretName: "{{ .Release.Name }}-{{ .Chart.Name }}-cert"
   {{- end }}
+  {{- if .Values.ingress.className }}
   ingressClassName: {{ .Values.ingress.className }}
+  {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host }}
