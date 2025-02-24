@@ -1,15 +1,35 @@
+---
 repos:
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 3.0.0
-    hooks:
-      - id: shellcheck
-        types: [file, shell]
-  - repo: https://github.com/hadolint/hadolint
-    rev: v2.13.1-beta
-    hooks:
-      - id: hadolint-docker
-  - repo: https://github.com/gvanderest/pylama-pre-commit
-    rev: 0.1.2
-    hooks:
-      - id: pylama
-        args: ["--format", "parsable"]
+    - repo: https://github.com/jumanjihouse/pre-commit-hooks
+      rev: 3.0.0
+      hooks:
+        - id: shellcheck
+          types: [file, shell]
+    - repo: https://github.com/hadolint/hadolint
+      rev: v2.13.1-beta
+      hooks:
+        - id: hadolint-docker
+    - repo: https://github.com/gvanderest/pylama-pre-commit
+      rev: 0.1.2
+      hooks:
+        - id: pylama
+          args: ["--format", "parsable"]
+    - repo: https://github.com/google/yamlfmt
+      # Get the latest from:
+      # https://github.com/jumanjihouse/pre-commit-hook-yamlfmt/tags
+      rev: v0.13.0
+      hooks:
+        - id: yamlfmt
+          args: ['-formatter', 'indent=4,include_document_start=true']
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      # Get the latest from:
+      # https://github.com/pre-commit/pre-commit-hooks/releases
+      rev: v4.6.0
+      hooks:
+        - id: mixed-line-ending
+        - id: end-of-file-fixer
+        - id: destroyed-symlinks
+        - id: check-shebang-scripts-are-executable
+        - id: check-executables-have-shebangs
+        - id: no-commit-to-branch
+          args: [--branch, main]
