@@ -5,7 +5,6 @@ metadata:
   name: {{ .Chart.Name }}-web
   namespace: {{ .Release.Namespace }}
   annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: HTTP
     {{ if .Values.ingress.annotations }}
     {{ toYaml .Values.ingress.annotations | nindent 4 }}
     {{ end }}
