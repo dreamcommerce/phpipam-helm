@@ -14,13 +14,6 @@ repos:
       hooks:
         - id: pylama
           args: ["--format", "parsable"]
-    - repo: https://github.com/google/yamlfmt
-      # Get the latest from:
-      # https://github.com/jumanjihouse/pre-commit-hook-yamlfmt/tags
-      rev: v0.13.0
-      hooks:
-        - id: yamlfmt
-          args: ['-formatter', 'indent=4,include_document_start=true']
     - repo: https://github.com/pre-commit/pre-commit-hooks
       # Get the latest from:
       # https://github.com/pre-commit/pre-commit-hooks/releases
@@ -33,3 +26,7 @@ repos:
         - id: check-executables-have-shebangs
         - id: no-commit-to-branch
           args: [--branch, main]
+    - repo: https://github.com/norwoodj/helm-docs
+      rev: v1.14.2
+      hooks:
+        - id: helm-docs

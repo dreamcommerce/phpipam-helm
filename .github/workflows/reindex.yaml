@@ -12,14 +12,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
-                ref: ${{ github.event.pull_request.head.ref }}
-            - name: Render helm docs inside the README.md and push changes back to PR branch
-              uses: shaybentk/helm-docs-action@v0.0.1
-              with:
-                working-dir: charts/phpipam
-            - uses: actions/checkout@v4
-              with:
-                ref: ${{ github.head_ref }}
+                ref: ${{ github.head_ref}}
             - name: Install helm 3
               run: |
                 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
@@ -31,6 +24,6 @@ jobs:
               run: |
                 git config user.name "github-actions[bot]"
                 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                git add index.yaml packages/
+                git add index.yaml packages/ charts/phpipam/README.md
                 git commit -m "Reindex new charts" -a
                 git push
