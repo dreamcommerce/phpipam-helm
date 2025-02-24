@@ -18,8 +18,7 @@ jobs:
                 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
             - name: Package existing charts
               run: |
-                helm package --destination packages charts/*
-                helm repo index . --url https://molestashoper.github.io/phpipam-chart/
+                ./.github/workflows/scripts/package.sh
             - name: Commit files
               run: |
                 git config user.name "github-actions[bot]"

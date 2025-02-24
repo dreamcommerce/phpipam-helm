@@ -1,3 +1,5 @@
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/phpipam-helm)](https://artifacthub.io/packages/search?repo=phpipam-helm)
+
 # Phpipam For Kubernetes
 
 ## Contributing
@@ -24,3 +26,23 @@ To install Helm, refer to the [Helm install guide](https://github.com/helm/helm#
 Once you have installed the Helm client, you can deploy a Bitnami Helm Chart into a Kubernetes cluster.
 
 Please refer to the [Quick Start guide](https://helm.sh/docs/intro/quickstart/) if you wish to get running in just a few commands, otherwise, the [Using Helm Guide](https://helm.sh/docs/intro/using_helm/) provides detailed instructions on how to use the Helm client to manage packages on your Kubernetes cluster.
+
+## Usage
+
+[Helm](https://helm.sh) must be installed to use the charts. Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
+
+Once Helm has been set up correctly, add the repo as follows:
+
+    helm repo add phpipam-helm https://dreamcommerce.github.io/phpipam-helm
+
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages. You can then run `helm search repo phpipam-helm` to see the charts.
+
+To install the phpipam chart:
+
+    helm install my-phpipam phpipam-helm/phpipam
+
+To uninstall the chart:
+
+    helm delete my-phpipam
