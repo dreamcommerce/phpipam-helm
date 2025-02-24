@@ -21,7 +21,7 @@ jobs:
               run: |
                 ./.github/workflows/scripts/package.sh
             - name: Commit files
-              if: steps.package-charts.outputs.changed != 'Package already exists'
+              if: steps.package-charts.outputs.package_exist == 'false'
               run: |
                 git config user.name "github-actions[bot]"
                 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
