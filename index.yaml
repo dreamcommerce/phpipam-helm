@@ -1,0 +1,30 @@
+apiVersion: v1
+entries:
+  phpipam:
+  - apiVersion: v2
+    appVersion: 1.7.3
+    created: "2025-02-24T12:19:46.846831196Z"
+    description: phpipam is an open-source web IP address management application (IPAM)
+    digest: ac6e7cd6635ca04809b8599e81e299a4d90c636677bd3c913b4321b1e8cb0b68
+    home: https://phpipam.net
+    name: phpipam
+    sources:
+    - https://github.com/dreamcommerce/phpipam-helm
+    type: application
+    urls:
+    - https://dreamcommerce.github.io/phpipam-helm/packages/phpipam-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.7.3
+    created: "2025-02-24T12:19:46.846446458Z"
+    description: phpipam is an open-source web IP address management application (IPAM)
+    digest: f5340a1b3d9683ab86efceb9a9bd803aca5f95ec2c77bbd7b7daf570478c4013
+    home: https://phpipam.net
+    name: phpipam
+    sources:
+    - https://github.com/dreamcommerce/phpipam-helm
+    type: application
+    urls:
+    - https://dreamcommerce.github.io/phpipam-helm/packages/phpipam-1.0.0.tgz
+    version: 1.0.0
+generated: "2025-02-24T12:19:46.845764477Z"
