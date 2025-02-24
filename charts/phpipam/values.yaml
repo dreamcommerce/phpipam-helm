@@ -1,0 +1,75 @@
+---
+
+global:
+  podAnnotations: {}
+  database:
+    name: "phpipam"
+    user: "phpipam"
+
+phpipam:
+  name: phpipam-web
+  image:
+    repository: phpipam/phpipam-www
+    pullPolicy: IfNotPresent
+    tag: "v1.7.3"
+    replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+  resources:
+    requests:
+       cpu: 50m
+       memory: 32Mi
+    limits:
+       cpu: 1000m
+       memory: 2048Mi
+  widgets: {}
+
+cron:
+  name: phpipam-cron
+  image:
+    repository: phpipam/phpipam-cron
+    pullPolicy: IfNotPresent
+    tag: "v1.7.3"
+  scan_interval: 1h
+  resources:
+    requests:
+       cpu: 50m
+       memory: 32Mi
+    limits:
+       cpu: 1000m
+       memory: 2048Mi
+
+database:
+  name: phpipam-db
+  installed: true
+  image:
+    repository: percona/percona-server
+    pullPolicy: IfNotPresent
+    tag: "8.0.40"
+  service:
+    type: ClusterIP
+    port: 3306
+  persistence:
+    enabled: true
+    size: 15Gi
+    # storageClassName: ""
+  resources:
+    requests:
+       cpu: 50m
+       memory: 128Mi
+    limits:
+       cpu: 1000m
+       memory: 2048Mi
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  # tls: []
+
+nodeSelector: {}

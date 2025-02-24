@@ -1,0 +1,38 @@
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ .Chart.Name }}-web
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    {{ if .Values.ingress.annotations }}
+    {{ toYaml .Values.ingress.annotations | nindent 4 }}
+    {{ end }}
+spec:
+  tls:
+    {{- if .Values.ingress.tls }}
+    {{- toYaml .Values.ingress.tls | nindent 4 }}
+    {{- else }}
+    - hosts:
+        {{- range .Values.ingress.hosts }}
+        - {{ .host }}
+        {{- end }}
+      secretName: "{{ .Release.Name }}-{{ .Chart.Name }}-cert"
+  {{- end }}
+  ingressClassName: {{ .Values.ingress.className }}
+  rules:
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host }}
+      http:
+        paths:
+          {{- range .paths }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: {{ $.Values.phpipam.name }}
+                port:
+                  number: {{ $.Values.phpipam.service.port }}
+          {{- end }}
+    {{- end }}
