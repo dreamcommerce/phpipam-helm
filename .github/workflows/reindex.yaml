@@ -18,12 +18,11 @@ jobs:
                 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
             - name: Package existing charts
               run: |
-                helm package --destination packages charts/*
-                helm repo index . --url https://molestashoper.github.io/phpipam-chart/
+                ./.github/workflows/scripts/package.sh
             - name: Commit files
               run: |
                 git config user.name "github-actions[bot]"
                 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
                 git add index.yaml packages/ charts/phpipam/README.md
                 git commit -m "Reindex new charts" -a
-                git push --force
+                git push
