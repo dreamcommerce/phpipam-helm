@@ -30,3 +30,6 @@ repos:
       rev: v1.14.2
       hooks:
         - id: helm-docs
+          args:
+            # Make the tool search for charts only under the `example-charts` directory
+            - --chart-search-root=charts
