@@ -1,3 +1,5 @@
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/phpipam-helm)](https://artifacthub.io/packages/search?repo=phpipam-helm)
+
 # Phpipam For Kubernetes
 
 ## Contributing
