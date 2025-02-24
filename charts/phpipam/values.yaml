@@ -43,7 +43,7 @@ database:
   name: phpipam-db
   installed: true
   image:
-    repository: percona/percona-server
+    repository: mysql
     pullPolicy: IfNotPresent
     tag: "8.0.40"
   service:

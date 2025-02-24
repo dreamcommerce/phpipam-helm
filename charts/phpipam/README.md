@@ -1,6 +1,6 @@
 # phpipam
 
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.3](https://img.shields.io/badge/AppVersion-1.7.3-informational?style=flat-square)
+![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.3](https://img.shields.io/badge/AppVersion-1.7.3-informational?style=flat-square)
 
 phpipam is an open-source web IP address management application (IPAM)
 
@@ -24,7 +24,7 @@ phpipam is an open-source web IP address management application (IPAM)
 | cron.resources.requests.memory | string | `"32Mi"` |  |
 | cron.scan_interval | string | `"1h"` |  |
 | database.image.pullPolicy | string | `"IfNotPresent"` |  |
-| database.image.repository | string | `"percona/percona-server"` |  |
+| database.image.repository | string | `"mysql"` |  |
 | database.image.tag | string | `"8.0.40"` |  |
 | database.installed | bool | `true` |  |
 | database.name | string | `"phpipam-db"` |  |
