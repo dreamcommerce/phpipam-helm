@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.gcp.kubernetes.io/pre-shared-cert: mcrt-b277c460-fa41-4dc9-94aa-63fe8e3a6989
+    ingress.kubernetes.io/backends: '{"k8s-be-31032--a87afe91bd518119":"HEALTHY","k8s1-a87afe91-phpipam-phpipam-web-80-22b80c50":"UNHEALTHY"}'
+    ingress.kubernetes.io/forwarding-rule: k8s2-fr-nlt15q1i-phpipam-phpipam-web-md2z2648
+    ingress.kubernetes.io/redirect-url-map: k8s2-rm-nlt15q1i-phpipam-phpipam-web-md2z2648
+    ingress.kubernetes.io/target-proxy: k8s2-tp-nlt15q1i-phpipam-phpipam-web-md2z2648
+    ingress.kubernetes.io/url-map: k8s2-um-nlt15q1i-phpipam-phpipam-web-md2z2648
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.global-static-ip-name: phpipam-ip
+    meta.helm.sh/release-name: phpipam
+    meta.helm.sh/release-namespace: phpipam
+    networking.gke.io/managed-certificates: phpipam-ssl
+    networking.gke.io/v1beta1.FrontendConfig: phpipam-frontend-config
+  creationTimestamp: "2025-02-25T11:28:49Z"
+  finalizers:
+  - networking.gke.io/ingress-finalizer-V2
+  generation: 1
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: phpipam-web
+  namespace: phpipam
+  resourceVersion: "767653835"
+  uid: db627884-1614-4d23-80ba-5ad5e26335ad
+spec:
+  rules:
+  - host: phpipam.shoper.cloud
+    http:
+      paths:
+      - backend:
+          service:
+            name: phpipam-web
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.8.15.104
