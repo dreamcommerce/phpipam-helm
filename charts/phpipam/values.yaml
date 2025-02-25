@@ -1,5 +1,7 @@
 ---
 global:
+  xforwarded: false
+  installer: false
   podAnnotations: {}
   database:
     name: "phpipam"

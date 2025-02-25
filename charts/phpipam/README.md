@@ -1,6 +1,6 @@
 # phpipam
 
-![Version: 1.0.10](https://img.shields.io/badge/Version-1.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.3](https://img.shields.io/badge/AppVersion-1.7.3-informational?style=flat-square)
+![Version: 1.0.11](https://img.shields.io/badge/Version-1.0.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.3](https://img.shields.io/badge/AppVersion-1.7.3-informational?style=flat-square)
 
 phpipam is an open-source web IP address management application (IPAM)
 
@@ -38,7 +38,9 @@ phpipam is an open-source web IP address management application (IPAM)
 | database.service.type | string | `"ClusterIP"` |  |
 | global.database.name | string | `"phpipam"` |  |
 | global.database.user | string | `"phpipam"` |  |
+| global.installer | bool | `false` |  |
 | global.podAnnotations | object | `{}` |  |
+| global.xforwarded | bool | `false` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
