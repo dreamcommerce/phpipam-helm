@@ -33,6 +33,16 @@ spec:
             - containerPort: {{ .Values.phpipam.service.port }}
               protocol: TCP
               name: http
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 5
           env:
             - name: "IPAM_DATABASE_HOST"
               value: {{ .Values.database.name }}
@@ -55,6 +65,16 @@ spec:
               subPath: {{ $key }}
           {{- end }}
           {{- end }}
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 5
           resources:
             {{- toYaml .Values.phpipam.resources | nindent 12 }}
       {{- if .Values.phpipam.widgets }}
