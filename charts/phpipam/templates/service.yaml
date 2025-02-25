@@ -5,6 +5,10 @@ apiVersion: v1
 metadata:
   name: {{ .Values.database.name }}
   namespace: {{ .Release.Namespace }}
+  annotations:
+    {{ if .Values.phpipam.service.annotations }}
+    {{ toYaml .Values.phpipam.service.annotations | nindent 4 }}
+    {{ end }}
   labels:
     app: {{ .Chart.Name }}
     component: mysql

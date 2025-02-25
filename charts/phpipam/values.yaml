@@ -14,6 +14,7 @@ phpipam:
     tag: "v1.7.3"
     replicaCount: 1
   service:
+    annotations: {}
     type: ClusterIP
     port: 80
   resources:
