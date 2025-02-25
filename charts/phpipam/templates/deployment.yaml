@@ -44,6 +44,10 @@ spec:
             successThreshold: 1
             timeoutSeconds: 5
           env:
+            - name: "IPAM_DISABLE_INSTALLER"
+              value: {{ .Values.global.installer | default "false" }}
+            - name: "IPAM_TRUST_X_FORWARDED"
+              value: {{ .Values.phpipam.xforwarded | default "false" }}
             - name: "IPAM_DATABASE_HOST"
               value: {{ .Values.database.name }}
             - name: "IPAM_DATABASE_USER"
@@ -116,8 +120,6 @@ spec:
         - name: {{ .Values.cron.name }}
           image: "{{ .Values.cron.image.repository }}:{{ .Values.cron.image.tag | default .Chart.AppVersion }}"
           env:
-            - name: "IPAM_DISABLE_INSTALLER"
-              value: {{ .Values.global.installer | default "false" }}
             - name: "IPAM_DATABASE_HOST"
               value: {{ .Values.database.name }}
             - name: "IPAM_DATABASE_USER"
@@ -128,8 +130,6 @@ spec:
               value: "%"
             - name: "SCAN_INTERVAL"
               value: {{ .Values.cron.scan_interval }}
-            - name: "IPAM_TRUST_X_FORWARDED"
-              value: {{ .Values.phpipam.xforwarded | default "false" }}
             - name: "IPAM_DATABASE_PASS"
               valueFrom:
                 secretKeyRef:

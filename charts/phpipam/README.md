@@ -1,6 +1,6 @@
 # phpipam
 
-![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.3](https://img.shields.io/badge/AppVersion-1.7.3-informational?style=flat-square)
+![Version: 1.0.10](https://img.shields.io/badge/Version-1.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.3](https://img.shields.io/badge/AppVersion-1.7.3-informational?style=flat-square)
 
 phpipam is an open-source web IP address management application (IPAM)
 
@@ -54,6 +54,7 @@ phpipam is an open-source web IP address management application (IPAM)
 | phpipam.resources.limits.memory | string | `"2048Mi"` |  |
 | phpipam.resources.requests.cpu | string | `"50m"` |  |
 | phpipam.resources.requests.memory | string | `"32Mi"` |  |
+| phpipam.service.annotations | object | `{}` |  |
 | phpipam.service.port | int | `80` |  |
 | phpipam.service.type | string | `"ClusterIP"` |  |
 | phpipam.widgets | object | `{}` |  |
